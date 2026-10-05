@@ -2,5 +2,9 @@
   "plansDirectory": "./.claude/plans",
   "permissions": {
     "deny": ["Bash(git push --force *)"]
+  },
+  "attribution": {
+    "commit": "",
+    "pr": "",
   }
 }
