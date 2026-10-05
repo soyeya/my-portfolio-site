@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soye Park - Frontend Developer</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gradient: {
+                            start: '#4F46E5',    // indigo-600
+                            mid: '#A855F7',     // violet-500
+                            end: '#10B981'      // emerald-500
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', '"Pretendard Variable"', 'sans-serif'],
+                        pretendard: ['"Pretendard Variable"', 'sans-serif']
+                    },
+                    animation: {
+                        fadeIn: 'fadeIn 0.6s ease-in-out',
+                        slideUp: 'slideUp 0.6s ease-out',
+                        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/30 dark:border-slate-800/30">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="font-bold text-xl bg-gradient-to-r from-indigo-600 via-violet-500 to-emerald-500 bg-clip-text text-transparent">
+                    PROFILE
+                </div>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex gap-8">
+                    <a href="#about" class="text-sm font-medium hover:text-violet-600 dark:hover:text-violet-400 transition">About</a>
+                    <a href="#skills" class="text-sm font-medium hover:text-violet-600 dark:hover:text-violet-400 transition">Skills</a>
+                    <a href="#today-code" class="text-sm font-medium hover:text-violet-600 dark:hover:text-violet-400 transition">Today's Code</a>
+                    <a href="#projects" class="text-sm font-medium hover:text-violet-600 dark:hover:text-violet-400 transition">Projects</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-violet-600 dark:hover:text-violet-400 transition">Contact</a>
+                </div>
+
+                <!-- Theme Toggle & Mobile Menu Button -->
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition" aria-label="Toggle theme">
+                        <span class="dark:hidden">🌙</span>
+                        <span class="hidden dark:inline">☀️</span>
+                    </button>
+                    <button id="menuToggle" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 space-y-2">
+            <a href="#about" class="block px-4 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition">About</a>
+            <a href="#skills" class="block px-4 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition">Skills</a>
+            <a href="#today-code" class="block px-4 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition">Today's Code</a>
+            <a href="#projects" class="block px-4 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition">Projects</a>
+            <a href="#contact" class="block px-4 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Hero Content -->
+            <div class="animate-fadeIn">
+                <h1 class="text-5xl sm:text-6xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-indigo-600 via-violet-500 to-emerald-500 bg-clip-text text-transparent">Soye Park</span>
+                </h1>
+                <p class="text-2xl text-slate-700 dark:text-slate-300 mb-4">Frontend Developer</p>
+                <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                    React와 Next.js를 사용하여 모던한 웹 애플리케이션을 만드는 것을 좋아합니다.
+                    사용자 경험을 최우선으로 생각하며, 깔끔한 코드와 효율적인 구조를 추구합니다.
+                </p>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="#projects" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-lg font-semibold hover:shadow-lg transition transform hover:scale-105">
+                        프로젝트 보기
+                    </a>
+                    <a href="#contact" class="px-8 py-3 border-2 border-violet-600 text-violet-600 dark:text-violet-400 rounded-lg font-semibold hover:bg-violet-50 dark:hover:bg-slate-900 transition">
+                        연락하기
+                    </a>
+                </div>
+            </div>
+
+            <!-- Weather Widget -->
+            <div class="animate-fadeIn" style="animation-delay: 0.2s;">
+                <div id="weatherWidget" class="bg-gradient-to-br from-indigo-100 dark:from-slate-800 to-violet-100 dark:to-slate-900 rounded-2xl p-8 shadow-lg">
+                    <div class="text-center">
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">오늘의 날씨</p>
+                        <div id="weatherContent" class="w-32 h-32 mx-auto mb-4">
+                            <svg class="w-full h-full" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><circle fill="#f8b62d" cx="250" cy="250" r="84.8"/></svg>
+                        </div>
+                        <p id="weatherStatus" class="text-2xl font-semibold mb-2">로딩 중...</p>
+                        <p id="weatherTemp" class="text-4xl font-bold bg-gradient-to-r from-indigo-600 via-violet-500 to-emerald-500 bg-clip-text text-transparent">--°C</p>
+                        <p id="weatherMinMax" class="text-sm text-slate-600 dark:text-slate-400 mt-4">최고: --°C / 최저: --°C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-indigo-600 via-violet-500 to-emerald-500 bg-clip-text text-transparent">About</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <img src="profile.jpg" alt="Soye Park" class="h-64 sm:h-80 w-full object-cover rounded-2xl shadow-lg">
+                <div class="space-y-6 text-lg text-slate-700 dark:text-slate-400">
+                    <p>
+                        저는 사용자 중심의 웹 개발자입니다. HTML, CSS, JavaScript의 기초부터 React, Vue, Next.js와 같은 최신 프레임워크까지
+                        다양한 기술을 활용해 문제를 해결합니다.
+                    </p>
+                    <p>
+                        코드의 가독성과 유지보수성을 중요하게 여기며, 팀과의 협업을 통해 더 나은 결과물을 만드는 것을 즐깁니다.
+                        새로운 기술 학습에 열정적이며, 끊임없이 성장하려는 자세를 갖고 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-indigo-600 via-violet-500 to-emerald-500 bg-clip-text text-transparent">Skills</h2>
+            <div class="space-y-12">
+                <!-- Markup & Style -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-slate-900 dark:text-slate-100">마크업 & 스타일</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="px-6 py-3 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full font-semibold">HTML5</div>
+                        <div class="px-6 py-3 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full font-semibold">CSS3</div>
+                        <div class="px-6 py-3 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full font-semibold">Tailwind CSS</div>
+                        <div class="px-6 py-3 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full font-semibold">Responsive Design</div>
+                    </div>
+                </div>
+
+                <!-- Language -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-slate-900 dark:text-slate-100">언어</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="px-6 py-3 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-full font-semibold">JavaScript</div>
+                        <div class="px-6 py-3 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-semibold">TypeScript</div>
+                    </div>
+                </div>
+
+                <!-- Frameworks -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-slate-900 dark:text-slate-100">프레임워크 & 라이브러리</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="px-6 py-3 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full font-semibold">React</div>
+                        <div class="px-6 py-3 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full font-semibold">Vue.js</div>
+                        <div class="px-6 py-3 bg-black/10 dark:bg-white/10 text-slate-900 dark:text-slate-100 rounded-full font-semibold">Next.js</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Today's Code Section -->
+    <section id="today-code" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-indigo-600 via-violet-500 to-emerald-500 bg-clip-text text-transparent">Today's Code</h2>
+
+            <!-- Period Controls -->
+            <div class="flex justify-center gap-4 mb-8 flex-wrap">
+                <button class="period-btn px-4 py-2 rounded-lg font-semibold transition" data-period="week">1주</button>
+                <button class="period-btn px-4 py-2 rounded-lg font-semibold transition" data-period="twoweeks">2주</button>
+                <button class="period-btn px-4 py-2 rounded-lg font-semibold transition" data-period="month">1개월</button>
+                <button class="period-btn px-4 py-2 rounded-lg font-semibold transition active" data-period="quarter">3개월</button>
+            </div>
+
+            <!-- GitHub Integration -->
+            <div class="bg-white dark:bg-slate-800 rounded-xl p-6 mb-8 border border-slate-200 dark:border-slate-700">
+                <div class="flex flex-col sm:flex-row gap-4 items-center justify-between">
+                    <div class="flex-1 w-full sm:w-auto">
+                        <label class="block text-sm font-semibold mb-2">GitHub 계정</label>
+                        <input type="text" id="githubUsername" placeholder="soyeya"
+                            class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Heatmap -->
+            <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 overflow-x-auto">
+                <div id="heatmapContainer" class="inline-block min-w-full"></div>
+            </div>
+
+            <!-- Summary Stats -->
+            <div class="grid grid-cols-3 gap-4 mt-8">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 text-center">
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-2">총 활동</p>
+                    <p id="totalActivity" class="text-3xl font-bold">0</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 text-center">
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-2">활동한 일수</p>
+                    <p id="activeDays" class="text-3xl font-bold">0</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 text-center">
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-2">연속일</p>
+                    <p id="streakDays" class="text-3xl font-bold">0</p>
+                </div>
+            </div>
+
+            <!-- Todo Panel -->
+            <div class="mt-8 bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-semibold" id="selectedDateLabel">오늘</h3>
+                    <button id="useDemoData" class="text-sm px-3 py-1 border border-slate-300 dark:border-slate-600 rounded hover:bg-slate-100 dark:hover:bg-slate-700 transition">To Do List</button>
+                </div>
+                <div class="space-y-3" id="todoList"></div>
+                <div class="mt-4 flex gap-2">
+                    <input type="text" id="todoInput" placeholder="새로운 항목 추가..."
+                        class="flex-1 px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700">
+                    <button id="todoAdd" class="px-4 py-2 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition">추가</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-indigo-600 via-violet-500 to-emerald-500 bg-clip-text text-transparent">Projects</h2>
+            <div id="projectsContainer" class="grid md:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-12 bg-gradient-to-r from-indigo-600 via-violet-500 to-emerald-500 bg-clip-text text-transparent">Contact</h2>
+            <p class="text-xl text-slate-600 dark:text-slate-400 mb-8">
+                궁금한 점이나 협업 제안이 있다면 언제든지 연락해주세요.
+            </p>
+            <div class="flex justify-center gap-6 flex-wrap">
+                <a href="mailto:sypwork1207@gmail.com" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-lg font-semibold hover:shadow-lg transition transform hover:scale-105">
+                    이메일 보내기
+                </a>
+                <button id="copyEmail" class="px-8 py-3 border-2 border-violet-600 text-violet-600 dark:text-violet-400 rounded-lg font-semibold hover:bg-violet-50 dark:hover:bg-slate-900 transition">
+                    이메일 복사
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 text-center text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
+        <p>&copy; 2024 Soye Park. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

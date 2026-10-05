@@ -1,0 +1,10 @@
+.DS_Store
+
+# Claude Code (개인 설정, 작업 기록, 지침 문서는 업로드하지 않음)
+CLAUDE.md
+.claude/plans/
+.claude/history/
+.claude/settings.local.json
+
+# 에디터 설정
+.vscode/
