@@ -1,6 +1,6 @@
 {
   "plansDirectory": "./.claude/plans",
-  "deny":[
-    "Bash(git push --force *)"
-  ]
+  "permissions": {
+    "deny": ["Bash(git push --force *)"]
+  }
 }
