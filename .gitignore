@@ -4,6 +4,7 @@
 CLAUDE.md
 .claude/plans/
 .claude/history/
+.claude/rules/
 .claude/settings.local.json
 
 # 에디터 설정
